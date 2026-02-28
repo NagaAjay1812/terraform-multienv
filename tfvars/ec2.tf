@@ -1,8 +1,6 @@
 resource "aws_instance" "roboshop" {
-  ami = local.ami_id
-  # we have lookup(map, key) function : you know map, key the value will be return
-  instance_type = lookup(var.instance_type, local.environment)
-
+  ami           = "ami-0220d79f3f480ecf5"
+  instance_type = var.instance_type
   # Reference the security group ID here
   vpc_security_group_ids = [aws_security_group.roboshop_sg.id]
 
@@ -11,7 +9,7 @@ resource "aws_instance" "roboshop" {
 
   # Optional: Add tags to the instance for identification
   tags = {
-    Name    = "${var.project}-${local.environment}" #roboshop-dev
+    Name    = "terraform-${var.environment}"
     Project = "Roboshop"
 
   }
@@ -19,7 +17,7 @@ resource "aws_instance" "roboshop" {
 
 
 resource "aws_security_group" "roboshop_sg" {
-  name        = "terraform_testing_sg_new-${local.environment}" # this is for AWS account
+  name        = "terraform_testing_sg_new" # this is for AWS account
   description = "Allow TLS inbound traffic"
 
 
@@ -41,6 +39,6 @@ resource "aws_security_group" "roboshop_sg" {
   }
 
   tags = {
-    Name = "terraform_testing_sg"
+    Name = "terraform_testing_sg-${var.environment}"
   }
 }
