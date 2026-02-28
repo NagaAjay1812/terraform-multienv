@@ -22,6 +22,12 @@ Whenever we initialize Terraform for a specific environment, we use:
 
 terraform init -backend-config=dev/backend.tf
 
+---
+
+**Project structure**
+
+```
+
 terraform-multienv/
 └── tfvars/
     ├── ec2.tf
@@ -35,6 +41,8 @@ terraform-multienv/
     └── qa/
         ├── backend.tf
         └── terraform.tfvars
+
+```
 
 in tfvars also we are facing same problems.
 
