@@ -1,11 +1,11 @@
 # workspace
-if you want to create multiple environemnt you can use terraform workspace, terraform will provide special variable called terraform.workspace
-terraform workspace --help(to lsit all the commands) to create new, select, delete  environment.
+If you want to create multiple environemnt, you can use Terraform workspace. Terraform will provide a special variable called terraform.workspace
+terraform workspace --help(to list all the commands) to create new, select, and delete  environments.
 
--> we can use terraform.workpace variable we control the values
+- We can use terraform.workpace variable, we control the values
 ex: terraform workspace select dev -> value should be t3.micro; qa -> value should be t3.small ; prod -> value should be t3.medium
-i.e., consitent across all the environments (dev, qa, uat, prod)
-waht do yo mean by environment means -> same code on all environment
+i.e., consistent across all the environments (dev, qa, uat, prod)
+What do you mean by environment means -> same code on all environments
 
 # Advantages:
 - same code
@@ -15,7 +15,7 @@ waht do yo mean by environment means -> same code on all environment
 If you make changes to the code and switch to the prod workspace instead of dev, those changes will be applied to production as well. Since the codebase is the same across workspaces, we need to be very careful because any mistake can impact the production environment.
 
 # tfvars
-In Terraform, we create separate directories for each environment such as dev, qa, and prod.
+In Terraform, we create separate directories for each environment, such as dev, qa, and prod.
 Inside each environment folder, we define a separate backend.tf file to configure remote state storage (for example, an S3 bucket to store the Terraform state file).
 We also maintain separate variable files like dev.tfvars, qa.tfvars, and prod.tfvars to manage environment-specific values.
 Whenever we initialize Terraform for a specific environment, we use:
