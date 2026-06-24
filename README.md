@@ -1,8 +1,13 @@
+We are using Terraform to create the infra here we have three ways
+1. workspace, 
+2. tfvars
+3. seperate repos
+
 # workspace
 If you want to create multiple environemnt, you can use Terraform workspace. Terraform will provide a special variable called terraform.workspace
 terraform workspace --help(to list all the commands) to create new, select, and delete  environments.
 
-- We can use terraform.workpace variable, we control the values
+- We can use terraform.workspace variable, we control the values
 ex: terraform workspace select dev -> value should be t3.micro; qa -> value should be t3.small ; prod -> value should be t3.medium
 i.e., consistent across all the environments (dev, qa, uat, prod)
 What do you mean by environment means -> same code on all environments
@@ -44,6 +49,6 @@ terraform-multienv/
 
 ```
 
-in tfvars also we are facing same problems.
+In tfvars, we are also facing the same problems.
 
 
