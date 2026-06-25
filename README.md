@@ -40,7 +40,18 @@ dev.tfvars:
 environmnet = "prod"
 instance_type = "t3.medium"
 ---
+#  seperate repos
 
+# Advantage:
+1. Blast radius is zero
+2. clear isolation
+3. sepertare states
+
+# Disadvantages:
+1. duplicate code
+2. maintenance
+
+To overcome all these issue terraform came into the picture.
 **Project structure**
 
 ```
