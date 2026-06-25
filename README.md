@@ -27,6 +27,18 @@ Whenever we initialize Terraform for a specific environment, we use:
 
 terraform init -backend-config=dev/backend.tf
 
+# Advantages:
+- same code
+- consistent across all environments.
+
+# Disadvantages:
+Since the code is the same, instead of make chnges in dev, we do change in prod, and we will applythe  same like terrfor workspace
+
+ex:
+bimistakely we will pass the prod values in the dev environment
+dev.tfvars:
+environmnet = "prod"
+instance_type = "t3.medium"
 ---
 
 **Project structure**
